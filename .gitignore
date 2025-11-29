@@ -4,7 +4,7 @@ history
 myvenv/
 venv/
 env/
-
+*.env
 # Ігноруємо кеш пітона
 __pycache__/
 *.pyc
