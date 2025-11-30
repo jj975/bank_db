@@ -1,14 +1,45 @@
-<!DOCTYPE html>
-<html lang="uk">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Blog</title>
-</head>
+{% block content %}
 
-<body>
-    <h1>Home page</h1>
-    <p>Це моя перша сторінка на Django!</p>
-</body>
+{% if categories %}
+<nav class="navbar navbar-light bg-light mb-4" style="border-radius: 5px;">
+    <span class="navbar-brand mb-0 h1">Категорії:</span>
+    <div class="d-flex flex-wrap">
+        {% for item in categories %}
+        <a class="nav-link" href="{{ item.get_absolute_url }}">
+            <strong>{{ item.category }}</strong>
+        </a>
+        {% endfor %}
+    </div>
+</nav>
+{% endif %}
 
-</html>
+<div class="row">
+    <div class="col-12">
+        <h2>Свіжі новини</h2>
+        {% if articles %}
+        {% for item in articles %}
+        <div class="article-block">
+            <a href="{{ item.get_absolute_url }}">
+                <h4>{{ item.title }}</h4>
+            </a>
+            <h5 class="text-muted" style="font-size: 0.9rem;">
+                {{ item.pub_date|date:"j E Y" }}
+            </h5>
+            <p>
+                {{ item.description|safe|striptags|truncatewords_html:32 }}
+            </p>
+        </div>
+        {% endfor %}
+        {% else %}
+        <p>Немає новин.</p>
+        {% endif %}
+
+        <div class="mt-4 mb-5">
+            <a href="{% url 'articles-list' %}" class="btn btn-primary">Всі публікації -></a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
