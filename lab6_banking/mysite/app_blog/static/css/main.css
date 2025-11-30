@@ -2,8 +2,13 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu');
 
 body {
-    background-color: #f4f4f4;
-    /* Світло-сірий фон, поки немає картинки */
+    background-image: url('../img/bg.jpg');
+    /* Ось цей рядок має працювати */
+    background-repeat: repeat-y;
+    background-size: cover;
+    /* Додай це, щоб картинка розтягувалась */
+    background-attachment: fixed;
+    /* Щоб фон не рухався при прокрутці */
     font-family: 'Ubuntu', sans-serif;
 }
 
