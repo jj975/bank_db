@@ -1,12 +1,28 @@
 from django.contrib import admin
+from django.shortcuts import get_object_or_404
 from .models import Article, ArticleImage, Category
+from .forms import ArticleImageForm  # <--- Імпортуємо форму
 
-# Дозволяє додавати картинки прямо на сторінці статті
+
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('category', 'slug')
+    prepopulated_fields = {'slug': ('category',)}
+    fieldsets = (
+        ('', {
+            'fields': ('category', 'slug'),
+        }),
+    )
 
 
 class ArticleImageInline(admin.TabularInline):
     model = ArticleImage
+    form = ArticleImageForm  # <--- Підключаємо форму
     extra = 0
+    fieldsets = (
+        ('', {
+            'fields': ('title', 'image',),
+        }),
+    )
 
 
 class ArticleAdmin(admin.ModelAdmin):
@@ -26,16 +42,10 @@ class ArticleAdmin(admin.ModelAdmin):
         }),
     )
 
-
-class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('category', 'slug')
-    prepopulated_fields = {'slug': ('category',)}
-    fieldsets = (
-        ('', {
-            'fields': ('category', 'slug'),
-        }),
-    )
+    def delete_file(self, pk, request):
+        obj = get_object_or_404(ArticleImage, pk=pk)
+        return obj.delete()
 
 
-admin.site.register(Article, ArticleAdmin)
 admin.site.register(Category, CategoryAdmin)
+admin.site.register(Article, ArticleAdmin)
