@@ -1,27 +1,27 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Всі Публікації {% if category %}: {{ category }}{% endif %}</h1>
+<h1 class="mb-4">Всі Публікації {% if category %}: {{ category }}{% endif %}</h1>
 
 <div class="articles-container">
     {% for item in items %}
-    <div style="margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 20px;">
+    <div class="article-block">
         <a href="{{ item.get_absolute_url }}">
             <h3>{{ item.title }}</h3>
         </a>
 
-        <p style="color: gray; font-size: 0.9em;">
+        <p class="text-muted" style="font-size: 0.9em;">
             {{ item.pub_date|date:"d.m.Y" }}
         </p>
 
         {% if item.images.all %}
-        <div style="margin: 10px 0;">
-            <img src="{{ item.images.all.0.image.url }}" style="max-width: 300px; height: auto;">
+        <div class="container-image my-3">
+            <img class="img-fluid rounded" src="{{ item.images.all.0.image.url }}" alt="{{ item.title }}">
         </div>
         {% endif %}
 
         <p>{{ item.description|truncatewords:50 }}</p>
-        <a href="{{ item.get_absolute_url }}" class="btn">Читати далі -></a>
+        <a href="{{ item.get_absolute_url }}" class="btn btn-outline-primary btn-sm">Читати далі -></a>
     </div>
     {% empty %}
     <p>Статей поки немає.</p>
