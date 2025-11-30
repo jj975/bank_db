@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu');
 
 body {
-    background-image: url('../img/bg.jpg');
+    background-image: url('../img/bg.png');
     /* Ось цей рядок має працювати */
     background-repeat: repeat-y;
     background-size: cover;
