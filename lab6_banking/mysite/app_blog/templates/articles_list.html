@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="mb-4">Всі Публікації {% if category %}: {{ category }}{% endif %}</h1>
+
+<div class="articles-container">
+    {% for item in items %}
+    <div class="article-block">
+        <a href="{{ item.get_absolute_url }}">
+            <h3>{{ item.title }}</h3>
+        </a>
+
+        <p class="text-muted" style="font-size: 0.9em;">
+            {{ item.pub_date|date:"d.m.Y" }}
+        </p>
+
+        {% if item.images.all %}
+        <div class="container-image my-3">
+            <img class="img-fluid rounded" src="{{ item.images.all.0.image.url }}" alt="{{ item.title }}">
+        </div>
+        {% endif %}
+
+        <p>{{ item.description|truncatewords:50 }}</p>
+        <a href="{{ item.get_absolute_url }}" class="btn btn-outline-primary btn-sm">Читати далі -></a>
+    </div>
+    {% empty %}
+    <p>Статей поки немає.</p>
+    {% endfor %}
+</div>
+{% endblock %}

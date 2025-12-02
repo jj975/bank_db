@@ -1,0 +1,61 @@
+/* Підключаємо шрифт Ubuntu  */
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+/* Адаптивність шрифту для мобільних  */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 18px;
+    }
+}
+
+body {
+    /* Важливо: знайди картинку bg.jpg і поклади в папку static/img/ */
+    background-image: url('../img/bg.png');
+    background-repeat: repeat-y;
+    background-size: cover;
+    /* Додав, щоб розтягувалося гарно */
+    background-attachment: fixed;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+/* Заголовки білі - щоб читались на темному фоні  */
+div>h1 {
+    color: #fff;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+/* Навігація теж біла [cite: 2098-2099] */
+body>div>nav>div>a>h4 {
+    color: #fff;
+    font-family: 'Ubuntu', sans-serif;
+    display: inline-block;
+    /* Щоб були в рядок */
+    margin-right: 15px;
+}
+
+/* Блоки статей білі з тінню [cite: 2099-2100] */
+.article-block {
+    background: #fff;
+    color: #383838;
+    font-family: 'Ubuntu', sans-serif;
+    box-shadow: 2px 2px 1px #ccc;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.article-block a {
+    color: #383838;
+    font-family: 'Ubuntu', sans-serif;
+    text-decoration: none;
+}
+
+/* Відступи в меню */
+body>div>div>ol>li {
+    margin: 0 5px;
+}
+
+/* Картинки на всю ширину блоку [cite: 2101] */
+div.container-image>img {
+    width: 100%;
+    height: auto;
+}

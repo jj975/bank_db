@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p><a href="/">На головну</a> > <a href="{% url 'articles-list' %}">Всі статті</a> > {{ item.category }}</p>
+
+<h1>{{ item.title }}</h1>
+<p style="color: gray;"><em>Опубліковано: {{ item.pub_date|date:"d F Y H:i" }}</em></p>
+
+<div style="font-size: 1.1em; line-height: 1.6; margin-top: 20px;">
+    {{ item.description|linebreaks }}
+</div>
+
+{% if item.images.all %}
+<h3 style="margin-top: 40px;">Галерея:</h3>
+<div style="display: flex; gap: 15px; flex-wrap: wrap;">
+    {% for image in item.images.all %}
+    <div style="text-align: center;">
+        <img src="{{ image.image.url }}"
+            style="max-width: 300px; height: auto; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+        {% if image.title %}
+        <p style="font-size: 0.9em; color: #555;">{{ image.title }}</p>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock %}
