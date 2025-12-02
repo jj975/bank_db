@@ -1,0 +1,85 @@
+PS H:\bpolus\work\nuwnm\акітр-21фб\програмування> history
+
+  Id CommandLine
+  -- -----------
+   1 try { . "c:\Users\bpolus\AppData\Local\Programs\Microsoft VS Code\resources\app\ou...
+   2 git status
+   3 git add .
+   4 git commit -m "lab5 save"
+   5 git push origin -b main
+   6 git push origin main
+   7 git pull main
+   8 git pull
+   9 git add .
+  10 git commit -m "lab5 save"
+  11 git push origin main
+  12 git push origin main -f
+  13 git checkout -B lab2
+  14 git rm -r .\scriptssql\lab3\
+  15 git rm -r .\scriptssql\lab4\
+  16 git rm -r .\scriptssql\lab5\
+  17 mv .\scriptssql\lab2\* .
+  18 # 3. Видаляємо тепер вже непотрібну папку scriptssql (вона має бути порожньою або ... 
+  19 rm -r .\scriptssql\
+  20 git add .
+  21 git commit -m "Move lab2 files to root directory"
+  22 # 5. Відправляємо красу на сервер
+  23 git push origin lab2 --force
+  24 git checkout main
+  25 git checkout -B lab3
+  26 # Видаляємо чужі папки
+  27 git rm -r .\scriptssql\lab2\
+  28 git rm -r .\scriptssql\lab4\
+  29 git rm -r .\scriptssql\lab5\
+  30 # Витягуємо СВОЇ файли в корінь
+  31 mv .\scriptssql\lab3\* .
+  32 # Видаляємо залишки структури папок
+  33 rm -r .\scriptssql\
+  34 git add .
+  35 git commit -m "Finalize Lab 3: Files in root"
+  36 git push origin lab3 --force
+  37 git checkout main
+  38 git rm -r .\scriptssql\lab2\
+  39 git rm -r .\scriptssql\lab3\
+  40 git rm -r .\scriptssql\lab5\
+  41 mv .\scriptssql\lab*\* .
+  42 rm -r .\scriptssql\
+  43 git add .
+  44 git commit -m "Finalize Lab 4: Files in root"
+  45 git push origin lab4 --force
+  46 git checkout main
+  47 git checkout -B lab4
+  48 git commit -m "Finalize Lab 4: Files in root"
+  49 git add .
+  50 git commit -m "Finalize Lab 4: Files in root"
+  51 git push origin lab4 --force
+  52 git checkout main
+  53 dir
+  54 git checkout main
+  55 git reset --hard HEAD~1
+  56 # 2. Видаляємо все зайве (lab2, lab3, lab4)
+  57 git rm -r .\scriptssql\lab2\
+  58 git rm -r .\scriptssql\lab3\
+  59 git rm -r .\scriptssql\lab4\
+  60 git reset --hard HEAD~1
+  61 git checkout main
+  62 git checkout main
+  63 git reset --hard a2491b3
+  64 git checkout -B lab5
+  65 # 2. Видаляємо зайві папки (lab2, lab3, lab4)
+  66 git rm -r .\scriptssql\lab2\
+  67 git rm -r .\scriptssql\lab3\
+  68 git rm -r .\scriptssql\lab4\
+  69 # 3. Витягуємо файли 5-ї лаби в корінь
+  70 mv .\scriptssql\lab5\* .
+  71 # 4. Видаляємо порожню папку scriptssql
+  72 rm -r .\scriptssql\
+  73 # 5. Фіксуємо і відправляємо на сервер
+  74 git add .
+  75 git commit -m "Finalize Lab 5: Files in root"
+  76 git push origin lab5 --force
+  77 cls
+  78 python --version
+  79 history
+  80 git checkout -B lab6
+  81 git rm .\Banks.*
